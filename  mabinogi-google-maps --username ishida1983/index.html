@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Iria Map - Mabinogi Fantasy Life</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content="no-cache" http-equiv="cache-control" />
+	<meta content="no-cache" http-equiv="pragma" />
+	<meta http-equiv="ImageToolbar" content="no" />
+	<meta content="0" http-equiv="Expires" />
+	<style type="text/css">
+		html { overflow: hidden; }
+		html body { font-size: 70%; font-family: "Trebuchet MS" ,Tahoma, "微软雅黑"; padding: 0 auto; margin: 0 auto; width: 100%; height: 100%; }
+		a { text-decoration: none; }
+		a:hover { text-decoration: underline; }
+		#mapbar { width: 100%; height: 95%; position: absolute; border-bottom: 1px solid #999; }
+		#City { width: 150px; height: 40px; top: 37px; position: absolute; right: 0px; padding-left: 15px; background: url(images/cityBg.png) no-repeat; }
+		#infoDiv { background: url(images/infobg.png) no-repeat; width: 120px; height: 250px; top: 80px; position: absolute; right: 20px; padding: 20px 0 20px 20px; display: none; }
+		#info_inner { background-color: white; border: 1px solid #CCC; border-radius: 0.5em; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; display: block; width: 100px; height: 205px; overflow: scroll; overflow-x: hidden; filter: alpha(opacity:60); opacity: 0.6; -moz-opacity: .6; }
+		#detail_Content { background: url(images/content_bg.png); position: absolute; z-index: 999; width: 742px; height: 380px; left: 20px; top: 32px; display: none; }
+		#clozBtn { float: right; margin-right: 20px; margin-top: 15px; }
+		#clozBtn2 { margin-left: 10px; }
+		#inner_Content { background-color: white; border: 1px solid #CCC; border-radius: 0.5em; -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; padding: 10px; margin: 45px 0 0 45px; display: block; width: 630px; height: 270px; }
+	</style>
+</head>
+<body onload="initialize()" onunload="GUnload()">
+	<div id="header" style="width: 100%; height: 35px; clear: both; border-bottom: 1px solid #999;
+		padding-left: 10px;">
+		<div style="float: right; margin: 10px; position: relative;">
+			<a href="mailto:ishida@iluoqi.com?subject=i've got some problems" style="color:Black" title="contact">@support</a>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	<a href="../" title="back to Home"><img src='http://www.iluoqi.com/logo.gif' alt='Mabinogi Fantasy Life' border='0' style='border:0' /></a></div>
+	<div id="mapbar">
+	</div>
+	<div id="City">
+		游戲要件查尋:
+		<input id="clozBtn2" type="button" value="∨" onclick="slide(this.value)" />
+	</div>
+	<div id="infoDiv">
+		<div id="info_inner">
+			<a href="javascript:showAddress(0);unshowContent();">艾莉克娜</a><br />
+			<a href="javascript:showAddress(1);unshowContent();">伊菲</a><br />
+			<a href="javascript:showAddress(2);unshowContent();">伊絲娜</a><br />
+			<a href="javascript:showAddress(3);unshowContent();">希布林</a><br />
+			<a href="javascript:showAddress(4);unshowContent();">尼克</a><br />
+			<a href="javascript:showAddress(5);unshowContent();">雅拉塔</a><br />
+			<a href="javascript:showAddress(6);unshowContent();">卡絲妮亞</a><br />
+			<a href="javascript:showAddress(7);unshowContent();">葛尼提斯</a><br />
+			<a href="javascript:showAddress(8);unshowContent();">哈吉爾</a><br />
+			<a href="javascript:showAddress(9);unshowContent();">里普斯</a><br />
+			<a href="javascript:showAddress(10);unshowContent();">梅麗絲</a><br />
+			<a href="javascript:showAddress(11);unshowContent();">姬琳</a><br />
+			<a href="javascript:showAddress(12);unshowContent();">庫魯格</a><br />
+			<a href="javascript:showAddress(13);unshowContent();">陶恩斯</a><br />
+			<a href="javascript:showAddress(14);unshowContent();">瓦安特</a><br />
+			<a href="javascript:showAddress(15);unshowContent();">維伊德</a><br />
+			<a href="javascript:showAddress(16);unshowContent();">雷德歐</a><br />
+			<a href="javascript:showAddress(17);unshowContent();">庫塞</a><br />
+			<a href="javascript:showAddress(18);unshowContent();">庫西娜</a><br />
+			<a href="javascript:showAddress(19);unshowContent();">洛瓦伊</a><br />
+			<a href="javascript:showAddress(20);unshowContent();">圖派依</a><br />
+			<a href="javascript:showAddress(21);unshowContent();">博伊特</a><br />
+			<a href="javascript:showAddress(22);unshowContent();">沃沃卡</a><br />
+			<a href="javascript:showAddress(23);unshowContent();">阿爾南</a><br />
+			<a href="javascript:showAddress(24);unshowContent();">貝莉塔</a><br />
+			<a href="javascript:showAddress(25);unshowContent();">凱彼</a><br />
+			<a href="javascript:showAddress(26);unshowContent();">雷加圖斯</a><br />
+		</div>
+	</div>
+	<div id="detail_Content">
+		<div id="clozBtn">
+			<input type="button" value="X" onclick="unshowContent()" /></div>
+		<div id="inner_Content">
+		</div>
+	</div>
+
+	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAtOR11yBxO2sgNXXYZdtDthRv1hUX-TjK1_Ycy7_B1Ori3Kd7xBROhbJme3F1Wskpsmb_mO3u5B5MuQ&sensor=true"
+		type="text/javascript" language="javascript"></script>
+
+	<script src="js/markermanager.js" type="text/javascript" language="javascript"></script>
+
+	<script src="js/pano_layer.js" type="text/javascript"></script>
+
+	<script src="js/pano_maptypecontrol.js" type="text/javascript"></script>
+
+	<script language="javascript" type="text/javascript" src="js/map.js"></script>
+
+</body>
+</html>
